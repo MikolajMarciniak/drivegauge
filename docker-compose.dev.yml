@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  # the frontend-backend API
+  frontend_API:
+    image: box_frontend_api
+    ports:
+      - 5000:5000 # for http requests
+
+  # the ingest microservice
+  ingest:
+    image: box_ingest
+    ports:
+      - 50051:50051 # for box communication
+    volumes:
+      # for binary box data
+      - type: bind
+        source: user_data
+        target: /user_data
