@@ -6,6 +6,10 @@ services:
     image: box_frontend_api
     ports:
       - 5000:5000 # for http requests
+    # for db access
+    environment:
+      - POSTGRES_USER=${DB_UNAME}
+      - POSTGRES_PASSWORD=${DB_PSSWD}
 
   # the ingest microservice
   ingest:
@@ -17,3 +21,21 @@ services:
       - type: bind
         source: user_data
         target: /user_data
+
+  # the database
+  database:
+    image: postgres
+    # login data passthrough
+    environment:
+      - POSTGRES_USER=${DB_UNAME}
+      - POSTGRES_PASSWORD=${DB_PSSWD}
+    ports:
+      - '5432:5432' # database interface
+    volumes: 
+      - db:/var/lib/postgresql/data # data persistance
+      - ./init_db.sql:/docker-entrypoint-initdb.d/create_tables.sql # initial config
+
+volumes:
+  # databse persitancy
+  db:
+    driver: local
