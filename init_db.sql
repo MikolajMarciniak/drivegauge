@@ -1,4 +1,3 @@
-/* Create tables */
 DROP TABLE IF EXISTS Companies;
 CREATE TABLE Companies (
 	companyID serial PRIMARY KEY,
@@ -44,5 +43,5 @@ CREATE TABLE Incidents (
 /* insert test user */
 INSERT INTO Companies (companyID, name) VALUES (1, 'Test Company');
 INSERT INTO Empolyees (companyID, userName) VALUES (1, 'to_matih'), (1, 'ivan');
-INSERT INTO Users (companyID,name,surname,boxID ) VALUES (1,'Hatsune','Miku','123');
+INSERT INTO Users (companyID,name,surname,boxID ) VALUES (1,'Hatsune','Miku','123'), (1, "Suletta","Mercury","456") , (1, "Safe", "Driver", "551"), (1, "Moderate", "Driver", "552"),(1, "Danger", "Driver", "553"),;
 
