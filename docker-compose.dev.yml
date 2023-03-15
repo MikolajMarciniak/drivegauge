@@ -10,6 +10,7 @@ services:
     environment:
       - POSTGRES_USER=${DB_UNAME}
       - POSTGRES_PASSWORD=${DB_PSSWD}
+      - POSTGRES_HOST=database
 
   # the ingest microservice
   ingest:
