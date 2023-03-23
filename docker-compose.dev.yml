@@ -13,15 +13,15 @@ services:
       - POSTGRES_HOST=database
 
   # the ingest microservice
-  ingest:
-    image: box_ingest
-    ports:
-      - 50051:50051 # for box communication
-    volumes:
-      # for binary box data
-      - type: bind
-        source: user_data
-        target: /user_data
+#  ingest:
+#    image: box_ingest
+#    ports:
+#      - 50051:50051 # for box communication
+#    volumes:
+#      # for binary box data
+#      - type: bind
+#        source: user_data
+#        target: /user_data
 
   # the database
   database:

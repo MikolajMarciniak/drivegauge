@@ -26,7 +26,9 @@ DROP TABLE IF EXISTS Trips;
 CREATE TABLE Trips (
 	tripID UUID PRIMARY KEY, 
 	userID serial NOT NULL, 
-	boxID varchar(10) NOT NULL, 
+	boxID varchar(10) NOT NULL,
+	tripStart timestamp NOT NULL,
+	tripStop timestamp NOT NULL,
 	drivingScoreImpact float NOT NULL, 
 	averageSpeed float NOT NULL
 );
@@ -36,7 +38,9 @@ CREATE TABLE Incidents (
 	incidentID serial PRIMARY KEY, 
 	userID serial NOT NULL, 
 	type varchar(50) NOT NULL, 
-	drivingScoreImpact float NOT NULL
+	drivingScoreImpact float NOT NULL,
+	distance float NOT NULL,
+	incidentTIme timestamp NOT NULL
 );
 
 
