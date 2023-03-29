@@ -7,4 +7,5 @@ Before any of the steps make sure that you have the required docker imaes on you
 1. clone the repository `git clone git@github.com:cs3028-hotel/drivegauge.git`
 2. change directory into the project `cd drivegauge`
 3. create a `.env` file with login enviroment variables for the database (`DB_UNAME` and `DB_PSSWD`)
-4. To run the app execute `docker compose -f docker-compose.dev.yml up`
+4. Create a folder for binary data `mkdir user_data`
+5. To run the app execute `docker compose -f docker-compose.dev.yml up`
