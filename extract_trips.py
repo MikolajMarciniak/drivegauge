@@ -80,7 +80,6 @@ def calc_score_impact(trips):
     for user in set([x[0] for x in trips]):
         # Create a list of all the data for the current user
         user_data = [x for x in trips if x[0] == user]
-        # print(user_data)
         # Sort the user_data by the end date (index 2) in ascending order
         user_data_sorted = sorted(user_data, key=lambda x: x[2])
         current_score = user_data_sorted[0][3]
@@ -338,5 +337,8 @@ if __name__ == "__main__":
         trip, incident_list = extract_trip(files[i])
         trips.append(trip)
         incidents.append(incident_list)
-    upload_trips(trips)
-    upload_incidents(incidents)
+    for i in range(len(trips)):
+        if trips[i][0] == 5:
+            print(trips[i][3])
+    # upload_trips(trips)
+    # upload_incidents(incidents)
