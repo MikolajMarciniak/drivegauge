@@ -25,6 +25,7 @@ def extract_users(folder_name):
     # construct the full path to the folder
     folder_path = os.path.join(current_dir, folder_name)
     filenames, users = [], []
+    print(os.listdir(folder_path))
     for filename in os.listdir(folder_path):
         if filename.endswith(".csv"):
             # extract the part of the filename before the '@' sign
@@ -47,10 +48,9 @@ def upload_trips(trips):
     for trip in trips:
         unique = uuid.uuid4()
         user, start, end, score, speed = trip
-
         with get_db_connection() as conn, conn.cursor() as curr:
             curr.execute(
-                f"INSERT INTO Trips (tripID, boxID, userID, tripStart, tripStop, drivingScoreImpact, averageSpeed) VALUES ('{unique}', '{user}', '{user}', '{start}', '{end}', {score}, {speed});"
+                f"INSERT INTO Trips (tripID, userID, boxID, tripStart, tripStop, drivingScoreImpact, averageSpeed) VALUES ('{unique}', '{user}', '{user}', '{start}', '{end}', {score}, {speed});"
             )
             conn.commit()
 
@@ -60,7 +60,7 @@ def upload_trips(trips):
 def upload_incidents(incidents):
     for incident_list in incidents:
         for incident in incident_list:
-            type, lenght, time, score, user = incident
+            type, length, time, score, user = incident
             with get_db_connection() as conn, conn.cursor() as curr:
                 curr.execute(
                     f"INSERT INTO Incidents (userID, type, drivingScoreImpact, distance, incidentTIme) VALUES ('{user}', '{type}', '{score}', '{0}', '{time}');"
@@ -330,15 +330,11 @@ if __name__ == "__main__":
         files, users = extract_users("forza_data")
     except:
         files, users = extract_users("drivegauge/forza_data")
-
     trips, incidents = [], []
     # extract data for each trip
     for i in range(len(files)):
         trip, incident_list = extract_trip(files[i])
         trips.append(trip)
         incidents.append(incident_list)
-    for i in range(len(trips)):
-        if trips[i][0] == 5:
-            print(trips[i][3])
-    # upload_trips(trips)
-    # upload_incidents(incidents)
+    upload_trips(trips)
+    upload_incidents(incidents)
