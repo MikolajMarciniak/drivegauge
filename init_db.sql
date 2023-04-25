@@ -46,7 +46,7 @@ CREATE TABLE Incidents (
 
 /* insert test user */
 INSERT INTO Companies (companyID, name) VALUES (1, 'Test Company'), (2, 'Mko');
-INSERT INTO Empolyees (companyID, userName) VALUES (1, 'to_matih'), (1, 'ivan'), (1, 'miko');
+INSERT INTO Empolyees (companyID, userName) VALUES (1, 'to_matih'), (1, 'ivan'), (1, 'miko'), (1, 'TestUser');
 INSERT INTO Users (companyID,name,surname,boxID ) VALUES (1,'Hatsune','Miku','123'), (1, 'Suletta','Mercury','456') , (1, 'Safe', 'Driver', '551'), (1, 'Moderate', 'Driver', '552'),(1, 'Danger', 'Driver', '553');
 INSERT INTO Trips (tripID, userID, boxID, tripStart, tripStop, drivingScoreImpact, averageSpeed) 
 VALUES ('a4b803cf-45e4-4e4e-8f31-48e43bdf9d52', 1, '123', '2025-11-16 19:11:00', '2025-08-08 12:21:00', 2.1, 3.0),
