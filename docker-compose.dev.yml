@@ -38,17 +38,13 @@ services:
 
   # the script executor
   script_executor:
-    image: python:3.8-slim
+    image: box_processing
     environment:
       - POSTGRES_USER=${DB_UNAME}
       - POSTGRES_PASSWORD=${DB_PSSWD}
       - POSTGRES_HOST=database
     depends_on:
       - database
-    volumes:
-      - ./extract_trips.py:/extract_trips.py
-      - ./forza_data:/forza_data
-    command: sh -c "pip install psycopg2-binary && python /extract_trips.py"
 
 volumes:
   # databse persitancy
