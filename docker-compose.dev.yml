@@ -11,6 +11,8 @@ services:
       - POSTGRES_USER=${DB_UNAME}
       - POSTGRES_PASSWORD=${DB_PSSWD}
       - POSTGRES_HOST=database
+    depends_on:
+      database
 
   # the ingest microservice
   ingest:
@@ -37,8 +39,9 @@ services:
       - ./init_db.sql:/docker-entrypoint-initdb.d/create_tables.sql # initial config
 
   # the script executor
-  script_executor:
+  processing:
     image: box_processing
+     # for db access
     environment:
       - POSTGRES_USER=${DB_UNAME}
       - POSTGRES_PASSWORD=${DB_PSSWD}
@@ -50,5 +53,3 @@ volumes:
   # databse persitancy
   db:
     driver: local
-  # volume for /forza_data directory
-  forza_data:
