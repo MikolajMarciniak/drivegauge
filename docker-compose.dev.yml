@@ -1,6 +1,13 @@
 version: '3.8'
 
 services:
+
+  # the frontend
+  frontend:
+    image: frontend
+    ports:
+      - 3000:3000 # for serving the webpage
+
   # the frontend-backend API
   frontend_API:
     image: box_frontend_api
