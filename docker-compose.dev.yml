@@ -29,7 +29,7 @@ services:
     volumes:
       # for binary box data
       - type: bind
-        source: user_data
+        source: ./user_data
         target: /user_data
 
   # the database

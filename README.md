@@ -1,11 +1,45 @@
-# drivegauge
-The main repository for the drivegauge app
+# Drivegauge
+A restructured copy of the DriveGuage repository. Follow these instructions ONLY.
+
+## Notes
+You can read full documentation in the CS3028-notes folder. Make sure you have installed docker, docker-compose and Node.js. 
 
 
 ## Running the app
-Before any of the steps make sure that you have the required docker imaes on your system!
-1. clone the repository `git clone git@github.com:cs3028-hotel/drivegauge.git`
-2. change directory into the project `cd drivegauge`
-3. create a `.env` file with login enviroment variables for the database (`DB_UNAME` and `DB_PSSWD`)
-4. Create a folder for binary data `mkdir user_data`
-5. To run the app execute `docker compose -f docker-compose.dev.yml up`
+
+1. Once the system is setup, run the docker compose file from the root directory, using `sudo docker-compose -f docker-compose.dev.yml up` on Unix systems or `docker compose -f docker-compose.dev.yml up` on Windows
+2. Naviage to localhost:3000 in your browser to view the web app
+3. When running the app use the login 'ivan' with any 6 character password, or define your own employee accounts in init_db.sql under backend/database path
+
+## Setting up the app
+
+### Automatic setup
+
+First try to run the setup script.
+
+1. On macOS and Linux run setup_app.sh, on Windows run as administrator setup_app.bat
+2. You are done! Follow the running instructions
+
+If there are any issues executing the setup script, follow the manual instructions below, instead.
+
+### Manual setup
+
+To get the app to work you must first set up docker images.
+
+1. In this folder, create a `.env` file with login enviroment variables for the database, choose your own (`DB_UNAME` and `DB_PSSWD`)
+2. go into the project directory `cd backend`
+3. initialize submodules `git submodule init`
+4. clone submodules `git submodule update`
+5. navigate to box_ingest directory `cd ./box_ingest_server`
+5. build the ingest docker image `docker build --tag box_ingest -f box_ingest_server/Dockerfile .`
+6. change into frontend directory `cd ../frontend_communication_server `
+7. build the frontend docker image `docker build --tag box_frontend_api .`
+8. change into processing directory `cd ../processing_server`
+9. build the processing image  `docker build --tag box_processing .`
+10. change to the frontend directory `cd ../../frontend_prototype`
+11. build the frontend image  `docker build --tag frontend .`
+12. If you are using box_ingest to process the data, create a folder for binary data `mkdir user_data`
+13. You are done! Follow the running instructions
+
+
+
