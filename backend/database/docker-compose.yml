@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_USER=${DB_UNAME}
+      - POSTGRES_PASSWORD=${DB_PSSWD}
+    ports:
+      - '5432:5432'
+    volumes: 
+      - db:/var/lib/postgresql/data
+      - ./init_db.sql:/docker-entrypoint-initdb.d/create_tables.sql
+volumes:
+  db:
+    driver: local

@@ -1,0 +1,18 @@
+// list of tips request
+{
+    "id": "123", // string
+    "offset": 0, // integer
+    "count": 10, //integer
+}
+
+// responce
+[
+    {
+        "incidentID": "123", // string
+        "type": "hard_brake", // string
+        "score_contribution": "0.1", // float
+        "trip_distance": 10.0, // float
+        "trip_duration": 10.0, // float
+    }
+]
+// the list of incidents, with length maximum of "count"

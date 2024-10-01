@@ -1,0 +1,3 @@
+[submodule "communication-protocols"]
+	path = communication-protocols
+	url = git@github.com:cs3028-hotel/communication-protocols.git

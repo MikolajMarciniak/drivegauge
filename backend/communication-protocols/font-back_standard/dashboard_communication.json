@@ -1,0 +1,29 @@
+// initial request
+{
+	"offset": 0, // integer
+	"count": 10, //integer
+}
+//response
+[
+	{
+		"id": "123", // string
+		"score": 98.1, // float
+		"last_trip": 120920912, // timestamp
+		"trip_len": 121221 // timestamp
+	},
+
+]// list of repeated objects of len maximum "count"
+
+
+// detail request
+{
+	"id": "123" // string
+}
+//response
+[
+	{
+		"trip_start": 09283910283, // timestamp
+		"trip_end": 09098098098, // timestamp
+		"score_contribution": -0.9 // float 
+	},
+] // list of repeated objects

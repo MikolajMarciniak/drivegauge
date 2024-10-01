@@ -1,0 +1,9 @@
+# protobuff generated files
+*_pb2.py
+*_pb2_grpc.py
+
+# python cache
+__pycache__/
+
+# data 
+user_data/

@@ -1,0 +1,21 @@
+// list of tips request
+{
+    "id": "123", // string
+    "offset": 0, // integer
+    "count": 10, //integer
+}
+
+//response
+[
+    {
+        "tripID": "123", // string
+        "trip_start": 09283910283, // timestamp
+        "trip_end": 09098098098, // timestamp
+        "score_contribution": -0.9, // float
+        "trip_distance": 10.0, // float
+        "trip_duration": 10.0, // float
+        "average_speed": 10.0, // float
+    },
+]
+
+// the list of trips, with length maximum of "count"

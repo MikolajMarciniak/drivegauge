@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
+
+package boxyMcBoxFace;
+
+// data types
+message Speed{
+	int64 value = 1;
+}
+
+//TODO: make more of these when we get some data
+
+// main message
+message DataPoint{
+	google.protobuf.Timestamp timestamp = 1;
+	// expand this as new data types are found
+	oneof data{
+		Speed speed = 2;
+	}
+
+}
+
+// server send message
+message CollectedData{
+	string boxID = 1;
+	repeated DataPoint data = 2;
+}
+
+// server save message
+message Trip{
+	google.protobuf.Timestamp start = 1;
+	google.protobuf.Timestamp end = 2;
+	repeated DataPoint data = 3;
+}
+
+
+// Server definition
+service DataCollector{
+	// get the data from the box
+	rpc sendData(CollectedData) returns (google.protobuf.Empty){}
+}
+// some text

@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+}
+
+#__next {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+}
+
+button[disabled] {
+  --tw-bg-opacity: 1 !important;
+  --tw-text-opacity: 0.2 !important;
+  color: black !important;
+}
+
+table.dash tbody tr:hover td {
+  background-color: lightgray !important;
+}
