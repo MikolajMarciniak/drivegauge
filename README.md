@@ -28,18 +28,16 @@ To get the app to work you must first set up docker images.
 
 1. In this folder, create a `.env` file with login enviroment variables for the database, choose your own (`DB_UNAME` and `DB_PSSWD`)
 2. go into the project directory `cd backend`
-3. initialize submodules `git submodule init`
-4. clone submodules `git submodule update`
-5. navigate to box_ingest directory `cd ./box_ingest_server`
-5. build the ingest docker image `docker build --tag box_ingest -f box_ingest_server/Dockerfile .`
-6. change into frontend directory `cd ../frontend_communication_server `
-7. build the frontend docker image `docker build --tag box_frontend_api .`
-8. change into processing directory `cd ../processing_server`
-9. build the processing image  `docker build --tag box_processing .`
-10. change to the frontend directory `cd ../../frontend_prototype`
-11. build the frontend image  `docker build --tag frontend .`
-12. If you are using box_ingest to process the data, create a folder for binary data `mkdir user_data`
-13. You are done! Follow the running instructions
+3. navigate to box_ingest directory `cd ./box_ingest_server`
+4. build the ingest docker image `docker build --tag box_ingest -f box_ingest_server/Dockerfile .`
+5. change into frontend directory `cd ../frontend_communication_server `
+6. build the frontend docker image `docker build --tag box_frontend_api .`
+7. change into processing directory `cd ../processing_server`
+8. build the processing image  `docker build --tag box_processing .`
+9. change to the frontend directory `cd ../../frontend_prototype`
+10. build the frontend image  `docker build --tag frontend .`
+11. If you are using box_ingest to process the data, create a folder for binary data `mkdir user_data`
+12. You are done! Follow the running instructions
 
 
 
